@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://e27pppwucnig"]
+
+[ext_resource type="Texture2D" uid="uid://yah4810e23vf" path="res://assets/mapa.png" id="1_ekubr"]
+[ext_resource type="Script" uid="uid://brmboxrp2qkjj" path="res://scenes/mapa.gd" id="1_tfnl5"]
+[ext_resource type="PackedScene" uid="uid://1xrk37r4r4fi" path="res://scenes/player.tscn" id="2_u1vf7"]
+
+[node name="mapa" type="Node2D"]
+script = ExtResource("1_tfnl5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(612, 337)
+texture = ExtResource("1_ekubr")
+
+[node name="Player" parent="." instance=ExtResource("2_u1vf7")]
+position = Vector2(661, 372)
