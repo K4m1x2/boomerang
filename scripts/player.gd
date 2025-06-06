@@ -1,24 +1,20 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
-@export var stop_distance: float = 5.0
+const playerSpeed = 250
+const playerAccel= 2.0
 
-var mouse_pressionado: bool = false
+var input: Vector2
 
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		mouse_pressionado = event.pressed  # true quando pressiona, false quando solta
-
-func _physics_process(delta):
-	if mouse_pressionado:
-		var destino = get_global_mouse_position()
-		var direcao = destino - global_position
-
-		if direcao.length() > stop_distance:
-			velocity = direcao.normalized() * speed
-		else:
-			velocity = Vector2.ZERO
-	else:
-		velocity = Vector2.ZERO
-
+func get_input():
+	input.x = Input.get_action_strength("right_move") - Input.get_action_strength("left_move")
+	input.y = Input.get_action_strength("down_move") - Input.get_action_strength("up_move")
+	return input.normalized()
+	
+func _process(delta):
+	var playerInput = get_input()
+	
+	velocity = lerp(velocity, playerInput * playerSpeed, delta * playerAccel)
+	
 	move_and_slide()
+	
+	
