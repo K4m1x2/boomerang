@@ -7,7 +7,7 @@ radius = 15.0
 height = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jiowd"]
-radius = 37.054
+radius = 36.0139
 
 [node name="RigidBody2D" type="RigidBody2D"]
 
