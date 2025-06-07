@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://n43k4yuvdirf"]
+
+[ext_resource type="Texture2D" uid="uid://db7m0ufg226q5" path="res://assets/boomerang.png" id="1_xwptw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wltir"]
+radius = 15.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jiowd"]
+radius = 37.054
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_xwptw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+shape = SubResource("CapsuleShape2D_wltir")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jiowd")
